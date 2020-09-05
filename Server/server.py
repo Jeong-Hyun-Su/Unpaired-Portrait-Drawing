@@ -27,15 +27,11 @@ def transform():
 
                 cv2.imwrite(send_name[idx], img)
                 send_name[idx] = send_name[idx]
-                # send_name[idx] = base64.b64encode(send_name[idx])
-                # print(send_name[idx])
-
-                # Image._show(send_name[idx])
 
     except KeyError:
-        return "No Image"
+        return "null"
 
     return send_name
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)

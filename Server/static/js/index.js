@@ -16,6 +16,9 @@ function formSend() {
         contentType: false,
         data: formData
     }).done(function(data) {
+        if(typeof data == "string"){
+
+        }
         for(let i=0; i<3; i++){
             let container = "img.con" + String((i+2));
             document.querySelector(container).setAttribute("src", data[i]);
