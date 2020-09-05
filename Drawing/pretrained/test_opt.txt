@@ -1,0 +1,52 @@
+----------------- Options ---------------
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+          checkpoints_dir: ./checkpoints                 
+                crop_size: 512                           	[default: 256]
+                 dataroot: examples                      	[default: None]
+             dataset_mode: single                        
+                direction: AtoB                          
+          display_winsize: 256                           
+                    epoch: 200                           	[default: latest]
+                     eval: False                         
+                  gpu_ids: 0                             
+                gpu_ids_p: 0                             
+              imagefolder: imagesstyle0-0-1              	[default: images]
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+                load_iter: 0                             	[default: 0]
+                load_size: 512                           	[default: 256]
+         max_dataset_size: inf                           
+                    model: test                          
+               model0_res: 0                             
+               model1_res: 0                             
+             model_suffix: _A                            	[default: ]
+               n_layers_D: 3                             
+                     name: pretrained                    	[default: experiment_name]
+                      ndf: 64                            
+                     netD: basic                         
+                     netG: resnet_9blocks                
+                    netga: resnet_style2_9blocks         
+                      ngf: 64                            
+               no_dropout: True                          	[default: False]
+                  no_flip: False                         
+                     norm: instance                      
+                    ntest: inf                           
+                 num_test: 1000                          	[default: 50]
+              num_threads: 4                             
+                output_nc: 1                             	[default: 3]
+                    phase: test                          
+               preprocess: resize_and_crop               
+              results_dir: ./results/                    
+           serial_batches: False                         
+            sfeature_mode: vgg19_softmax                 
+                     simg: Yann_Legendre-053             
+                     sind: 0                             
+                   sinput: svec                          	[default: sind]
+            style_control: 1                             
+                   suffix:                               
+                     svec: 0,0,1                         	[default: 1,0,0]
+                  verbose: False                         
+----------------- End -------------------

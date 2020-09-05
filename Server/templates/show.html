@@ -1,0 +1,54 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/show.css">
+</head>
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<section class="our-webcoderskull padding-lg">
+  <div class="container">
+    <div class="row heading heading-icon">
+        <h2>Sketch your Picture</h2>
+    </div>
+    <ul class="row">
+      <li class="col-12 col-md-6 col-lg-3">
+          <div class="cnt-block equal-hight" style="height: 349px;">
+            <figure><img src="https://github.com/Jeong-Hyun-Su/Unpaired-Portrait-Drawing/blob/master/examples/celebahq-11103.jpg?raw=true" class="con1" alt=""></figure>
+           
+            <p>Original Image</p>
+          </div>
+      </li>
+      <li class="col-12 col-md-6 col-lg-3">
+          <div class="cnt-block equal-hight" style="height: 349px;">
+            <figure><img src="http://www.webcoderskull.com/img/team1.png" class="con2" alt=""></figure>
+            <p>Version 1</p>
+          </div>
+      </li>
+      <li class="col-12 col-md-6 col-lg-3">
+          <div class="cnt-block equal-hight" style="height: 349px;">
+            <figure><img src="http://www.webcoderskull.com/img/team4.png" class="con3" alt=""></figure>
+            <p>Version 2</p>
+          </div>
+       </li>
+      <li class="col-12 col-md-6 col-lg-3">
+          <div class="cnt-block equal-hight" style="height: 349px;">
+            <figure><img src="http://www.webcoderskull.com/img/team2.png" class="con4" alt=""></figure>
+            <p>Version 3</p>
+          </div>
+      </li>
+    </ul>
+  </div>
+  <div class="input">
+    <br>
+    변환할 이미지 선택를 선택하세요.<br>
+    <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);" style="width: 300px; margin-left: 50px; margin-top: 50px;"/><br><br>
+    <input type="submit" id="submit" onclick="formSend();" value="변환하기">
+</div>
+  <script src="../static/js/index.js"></script>
+</section>
+
