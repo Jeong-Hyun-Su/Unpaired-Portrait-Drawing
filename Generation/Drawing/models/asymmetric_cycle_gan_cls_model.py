@@ -4,8 +4,7 @@ from util.image_pool import ImagePool
 from .base_model import BaseModel
 from . import networks
 import models.dist_model as dm # numpy==1.14.3
-import torchvision.transforms as transforms
-import os
+
 
 def truncate(fake_B,a=127.5):#[-1,1]
     return ((fake_B+1)*a).int().float()/a-1
@@ -100,13 +99,13 @@ class AsymmetricCycleGANClsModel(BaseModel):
         # Code (vs. paper): G_A (G), G_B (F), D_A (D_Y), D_B (D_X)
         if not self.opt.style_control:
             self.netG_A = networks.define_G(opt.input_nc, opt.output_nc, opt.ngf, opt.netG, opt.norm,
-                                        not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids)
+                                            not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids)
         else:
             print(opt.netga)
             print('model0_res', opt.model0_res)
             print('model1_res', opt.model1_res)
             self.netG_A = networks.define_G(opt.input_nc, opt.output_nc, opt.ngf, opt.netga, opt.norm,
-                                        not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids, opt.model0_res, opt.model1_res)
+                                            not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids, opt.model0_res, opt.model1_res)
         self.netG_B = networks.define_G(opt.output_nc, opt.input_nc, opt.ngf, opt.netG, opt.norm,
                                         not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids)
 
@@ -121,21 +120,21 @@ class AsymmetricCycleGANClsModel(BaseModel):
                 else:
                     output_nc = opt.output_nc
                 self.netD_A_l = networks.define_D(output_nc, opt.ndf, opt.netD,
-                                            opt.n_layers_D, opt.norm, opt.init_type, opt.init_gain, self.gpu_ids)
+                                                  opt.n_layers_D, opt.norm, opt.init_type, opt.init_gain, self.gpu_ids)
             if self.opt.use_eye_mask:
                 if self.opt.mask_type in [2, 3]:
                     output_nc = opt.output_nc + 1
                 else:
                     output_nc = opt.output_nc
                 self.netD_A_le = networks.define_D(output_nc, opt.ndf, opt.netD,
-                                            opt.n_layers_D, opt.norm, opt.init_type, opt.init_gain, self.gpu_ids)
+                                                   opt.n_layers_D, opt.norm, opt.init_type, opt.init_gain, self.gpu_ids)
             if self.opt.use_lip_mask:
                 if self.opt.mask_type in [2, 3]:
                     output_nc = opt.output_nc + 1
                 else:
                     output_nc = opt.output_nc
                 self.netD_A_ll = networks.define_D(output_nc, opt.ndf, opt.netD,
-                                            opt.n_layers_D, opt.norm, opt.init_type, opt.init_gain, self.gpu_ids)
+                                                   opt.n_layers_D, opt.norm, opt.init_type, opt.init_gain, self.gpu_ids)
         
         if not self.isTrain:
             self.criterionGAN = networks.GANLoss('lsgan').to(self.device)
