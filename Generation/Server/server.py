@@ -54,6 +54,7 @@ def main():
 # Sketch Start
 def run(image, style):
     # 전달받은 이미지 저장 및 변환
+    print(os.getcwd())
     image.filename = "input.png"
     file_dir = "./Drawing/examples/" + image.filename
 
