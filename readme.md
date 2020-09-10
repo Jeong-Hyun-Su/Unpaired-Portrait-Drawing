@@ -6,13 +6,16 @@ We provide PyTorch implementations for our CVPR 2020 paper "Unpaired Portrait Dr
 This project generates artistic portrait drawings from face photos using a GAN-based model.
 
 
+[![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=https://github.com/Jeong-Hyun-Su/Unpaired-Portrait-Drawing)
+
+
 ## Our Proposed Framework
  
-<img src = 'imgs/architecture.png'>
+![architecture](https://user-images.githubusercontent.com/42924998/92678270-96c31a00-f360-11ea-8b5b-98de0a029af5.png)
 
 ## Sample Results
 From left to right: input, output(style1), output(style2), output(style3)
-<img src = 'imgs/results.jpg'>
+![results](https://user-images.githubusercontent.com/42924998/92678287-a17daf00-f360-11ea-9ea2-227de6c07d3c.jpg)
 
 ## Citation
 If you use this code for your research, please cite our paper.
