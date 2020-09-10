@@ -13,5 +13,5 @@ COPY . .
 WORKDIR ./Generation
 
 
-EXPOSE 5000
+EXPOSE 80
 CMD python ./Server/server.py
