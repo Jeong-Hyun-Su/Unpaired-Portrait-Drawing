@@ -20,6 +20,7 @@ for style in ["1-0-0", "0-1-0", "0-0-1"]:
 
 os.chdir("/workspace/Generation")
 
+# Server & Handling Setting
 app = Flask(__name__)
 
 requests_queue = Queue()
@@ -120,4 +121,4 @@ def healthCheck():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, threaded=True)
+    app.run(host='0.0.0.0', port=80, threaded=True)

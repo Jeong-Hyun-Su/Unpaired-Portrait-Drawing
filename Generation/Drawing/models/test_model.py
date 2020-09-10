@@ -53,16 +53,16 @@ class TestModel(BaseModel):
         self.model_names = ['G' + opt.model_suffix, 'G_B']  # only generator is needed.
         if not self.opt.style_control:
             self.netG = networks.define_G(opt.input_nc, opt.output_nc, opt.ngf, opt.netG,
-                                          opt.norm, not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids)
+                                      opt.norm, not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids)
         else:
             print(opt.netga)
             print('model0_res', opt.model0_res)
             print('model1_res', opt.model1_res)
             self.netG = networks.define_G(opt.input_nc, opt.output_nc, opt.ngf, opt.netga, opt.norm,
-                                          not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids, opt.model0_res, opt.model1_res)
+                                        not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids, opt.model0_res, opt.model1_res)
         
         self.netGB = networks.define_G(opt.output_nc, opt.input_nc, opt.ngf, opt.netG,
-                                       opt.norm, not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids)
+                                      opt.norm, not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids)
         # assigns the model to self.netG_[suffix] so that it can be loaded
         # please see <BaseModel.load_networks>
         setattr(self, 'netG' + opt.model_suffix, self.netG)  # store netG in self.

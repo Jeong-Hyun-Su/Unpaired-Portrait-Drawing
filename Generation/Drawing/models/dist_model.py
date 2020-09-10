@@ -3,7 +3,7 @@ from __future__ import absolute_import
 
 import sys
 sys.path.append('..')
-sys.path.append('')
+sys.path.append('.')
 import numpy as np
 import torch
 from torch import nn
