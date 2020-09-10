@@ -5,35 +5,47 @@ const inputImg = document.querySelector('#input-img');
 function formSend() {
     var formData = new FormData();
 
-    const image = document.getElementById('image').files[0]
-    formData.append("image", image);
-    console.log("Start");
-    $.ajax({
-        url:'/transform', // 요청 할 주소
-        type: 'POST',
-        enctype: 'multipart/form-data',
-        processData : false,
-        contentType: false,
-        data: formData
-    }).done(function(data) {
-        let dir = require('fs');
-        fs.readdir('./curdir', (err, file_list) => { console.log(file_list) });
+    // Image, Version 선택
+    const image = document.getElementById('image').files[0];
+    let style = document.getElementById('style');
+    style = style.options[style.selectedIndex].value;
 
-        for(let i=0; i<3; i++){
-            let container = "img.con" + String((i+2));
-            document.querySelector(container).setAttribute("src", data[i]);
-        }
-    }).fail(function (error) {
-        console.log("Fail");
+    if(style == ""){
+        alert("Choose the Version");
         return;
-    });
-    console.log("End");
+    }
+
+    formData.append("image", image);
+    formData.append("style", style);
+    fetch(
+        '/transform',
+        {
+            method: 'POST',
+            body: formData,
+        }
+    )
+    .then(response => {
+        if ( response.status == 200){
+            return response
+        }
+        else{
+            throw Error("transform error")
+        }
+    })
+    .then(response => response.blob())
+    .then(blob => URL.createObjectURL(blob))
+    .then(imageURL => {
+        document.querySelector("img.contain").setAttribute("src", imageURL);
+    })
+    .catch(e =>{
+    })
 }
 
 function setThumbnail(event) { 
     var reader = new FileReader(); 
     reader.onload = function(event) { 
-        document.querySelector("img.con1").setAttribute("src", event.target.result);
+        document.querySelector("img.input-img").setAttribute("src", event.target.result);
+        document.querySelector("img.contain").setAttribute("src", "../static/show/white.png");
     }; 
     reader.readAsDataURL(event.target.files[0]); 
 }

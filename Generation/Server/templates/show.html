@@ -19,40 +19,57 @@
     <div class="row heading heading-icon">
         <h2>Sketch your Picture</h2>
     </div>
-    <ul class="row">
+    <!-- Example Div -->
+    <div>
+        <h2 style="margin-left: 120px; color: white;">Example</h4><br>
+        <span style="margin-left: 155px;" class="example-img">Original</span>
+        <span class="example-img">Style1</span><span class="example-img">Style2</span><span class="example-img">Style3</span>
+        <span style="margin-left: 28px;"class="example-img">Original</span>
+        <span class="example-img">Style1</span><span class="example-img">Style2</span><span class="example-img">Style3</span>
+        <figure><img src="../static/show/results.jpg" class="example"></figure>
+    </div>
+    <hr style="border: solid 1px white; width: 900px;">
+    <!-- How to Use -->
+    <div style="margin-bottom: 50px; color: white;">
+        <br>
+        <h2 style="margin-left: 120px;">How to Use</h2>
+        <div style="margin-left: 150px;">
+            <br>
+            <h5>1. Input a Image.</h5>
+            <h5>2. Choose the Sketch Version.</h5>
+            <h5>3. Press the Convert Button.</h5>
+        </div>
+    </div>
+    <hr style="border: solid 1px white; width: 900px;">
+    <!-- Show Image Block -->
+    <br>
+    <h2 style="margin-left: 120px; color: white;">Let's Start!</h2>
+    <ul class="row" style="margin-top: 50px;">
       <li class="col-12 col-md-6 col-lg-3">
-          <div class="cnt-block equal-hight" style="height: 349px;">
-            <figure><img src="https://github.com/Jeong-Hyun-Su/Unpaired-Portrait-Drawing/blob/master/examples/celebahq-11103.jpg?raw=true" class="con1" alt=""></figure>
-           
+          <div class="cnt-block equal-hight" style="margin-left: 250px; height: 349px;">
+            <figure><img src="../static/show/woman.jpg" class="input-img"></figure>
             <p>Original Image</p>
           </div>
       </li>
       <li class="col-12 col-md-6 col-lg-3">
-          <div class="cnt-block equal-hight" style="height: 349px;">
-            <figure><img src="http://www.webcoderskull.com/img/team1.png" class="con2" alt=""></figure>
-            <p>Version 1</p>
-          </div>
-      </li>
-      <li class="col-12 col-md-6 col-lg-3">
-          <div class="cnt-block equal-hight" style="height: 349px;">
-            <figure><img src="http://www.webcoderskull.com/img/team4.png" class="con3" alt=""></figure>
-            <p>Version 2</p>
-          </div>
-       </li>
-      <li class="col-12 col-md-6 col-lg-3">
-          <div class="cnt-block equal-hight" style="height: 349px;">
-            <figure><img src="http://www.webcoderskull.com/img/team2.png" class="con4" alt=""></figure>
-            <p>Version 3</p>
+          <div class="cnt-block equal-hight" style="margin-left: 300px;height: 349px;">
+            <figure><img src="../static/show/woman_fake.png" class="contain"></figure>
+            <select name="style" id="style">
+              <option value="">Choose the Version</option>
+              <option value="1-0-0">Style 1</option>
+              <option value="0-1-0">Style 2</option>
+              <option value="0-0-1">Style 3</option>
+            </select>
           </div>
       </li>
     </ul>
   </div>
   <div class="input">
-    <br>
-    변환할 이미지 선택를 선택하세요.<br>
-    <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);" style="width: 300px; margin-left: 50px; margin-top: 50px;"/><br><br>
-    <input type="submit" id="submit" onclick="formSend();" value="변환하기">
-</div>
+    <br>Select an image to convert.<br>
+    <input type="file" id="image" accept="image/*" value="Choose" onchange="setThumbnail(event);" style="width: 300px; margin-left: 30px; margin-top: 30px;"/><br><br>
+    <input type="submit" id="submit" onclick="formSend();" value="Convert">
+  </div>
+
     <script src="../static/js/index.js"></script>
 </section>
 

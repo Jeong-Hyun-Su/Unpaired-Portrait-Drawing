@@ -1,3 +1,16 @@
+
+.example{
+    margin-left: 150px; 
+    margin-bottom: 60px;
+    height: 400px; 
+    width: 850px;
+
+}
+.example-img{
+    margin-left: 36px; 
+    font-size: 25px;
+    color: white;
+}
 .row.heading h2 {
     color: #fff;
     font-size: 52.52px;
@@ -36,10 +49,6 @@ ul{
 	 margin-bottom:28px; 
 	 padding:40px 25px;
 }
-.our-webcoderskull .cnt-block:hover {
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-    border: 0;
-}
 .practice-area .inner h3{ 
     color:#3c3c3c; 
 	font-size:24px; 
@@ -65,9 +74,7 @@ ul{
    float:left; 
    width:100%; 
    background:#fff; 
-   padding: 5px 0px; 
    text-align:center; 
-   border: 3px solid #d5d5d5;
    margin: 0 0 28px;
 }
 .our-webcoderskull .cnt-block figure{
@@ -75,11 +82,11 @@ ul{
    height:285px; 
    border-radius:100%; 
    display:inline-block;
-   margin-bottom: 15px;
+   margin-bottom: 20px;
 }
 .our-webcoderskull .cnt-block img{ 
-   width:245px; 
-   height:280px; 
+   width:247px; 
+   height:285px; 
 }
 .our-webcoderskull .cnt-block h3{ 
    color:#2a2a2a; 
