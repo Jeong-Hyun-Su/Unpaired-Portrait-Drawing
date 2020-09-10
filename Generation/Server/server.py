@@ -54,7 +54,9 @@ def main():
 # Sketch Start
 def run(image, style):
     # 전달받은 이미지 저장 및 변환
+    image.filename = "input.png"
     file_dir = "./Drawing/examples/" + image.filename
+
     image.save(file_dir)
 
     # "1-0-0" => [1, 0, 0] 변환
