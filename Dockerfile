@@ -11,6 +11,7 @@ RUN pip install -r requirements.txt
 
 COPY . .
 WORKDIR ./Generation
+RUN mkdir -p ./Drawing/examples
 
 
 EXPOSE 80
