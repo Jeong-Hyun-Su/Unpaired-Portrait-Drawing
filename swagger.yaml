@@ -1,0 +1,53 @@
+openapi: 3.0.1
+
+info:
+  title: ainize-unpaired-Portrait-Drawing-swagger
+  description: |
+    Convert images into a Sketch style
+    ---
+      How to use:
+      * upload a image
+      * Select a Version
+      * Execute and wait little time
+  contact:
+    name: Ainizer - HyunSu Jeong
+  version: "0.1"
+
+servers:
+  - url: https://master-unpaired-portrait-drawing-jeong-hyun-su.endpoint.ainize.ai/
+
+paths:
+  /transform:
+    post:
+      requestBody:
+        required: true
+        description: "Convert images into a Sketch style"
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                style:
+                  type: string
+                  enum: ["1-0-0", "0-1-0", "0-0-1"]
+                image:
+                  type: string
+                  format: binary
+            encoding:
+              files:
+                contentType: image/*
+
+      responses:
+        '200':
+          description: success
+          content:
+            image/jpg:
+              schema:
+                type: string
+                format: binary
+
+        '400':
+          description: Bad Request
+
+        '500':
+          description: Server side error
