@@ -12,6 +12,10 @@ RUN pip install -r requirements.txt
 COPY . .
 WORKDIR ./Generation
 RUN mkdir -p ./Drawing/examples
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7e08cf2599cf2e18e531b3ad50190ab06ba5a84e
 
 EXPOSE 80
 CMD python ./Server/server.py
