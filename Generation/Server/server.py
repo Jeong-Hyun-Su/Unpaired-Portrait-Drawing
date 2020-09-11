@@ -100,9 +100,6 @@ def sketch():
     except Exception:
         print("error : not contain image")
         return Response("fail", status=400)
-
-    print("sketch")
-    print(os.getcwd())
     
     # Queue - put data
     req = {
