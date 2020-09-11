@@ -1,4 +1,5 @@
 flask
+waitress
 torchvision==0.4.0
 umap-learn==0.4.0
 dominate==2.4.0
