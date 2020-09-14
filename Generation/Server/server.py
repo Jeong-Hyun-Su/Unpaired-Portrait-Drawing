@@ -23,7 +23,7 @@ app = Flask(__name__)
 
 requests_queue = Queue()
 BATCH_SIZE = 1
-CHECK_INTERVAL = 0.2
+CHECK_INTERVAL = 0.1
 
 
 # Queue 핸들링
