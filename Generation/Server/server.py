@@ -25,7 +25,7 @@ app = Flask(__name__)
 
 requests_queue = Queue()
 BATCH_SIZE = 1
-CHECK_INTERVAL = 0.1
+CHECK_INTERVAL = 0.2
 
 
 # Queue 핸들링
@@ -95,7 +95,6 @@ def sketch():
     try:
         image = request.files['image']
         style = request.form['style']
-        print(style.split("-"))
 
     except Exception:
         print("error : not contain image")
