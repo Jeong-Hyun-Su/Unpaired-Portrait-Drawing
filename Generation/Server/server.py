@@ -60,9 +60,13 @@ def run(image, style):
     image.save(file_dir)
 
     # "1-0-0" => [1, 0, 0] 변환
-    vec = list(map(int, style.split("-")))
+    try:
+        vec = list(map(int, style.split("-")))
+    except Exception:
+        # 전달되지 않을 경우, 기본으로 세팅
+        vec = [1, 0, 0] 
+        
     svec = '%d,%d,%d' % (vec[0], vec[1], vec[2])
-
     # Make a Fake Image
     os.chdir("/workspace/Generation/Drawing")
     val = test.app(models[style], svec)
