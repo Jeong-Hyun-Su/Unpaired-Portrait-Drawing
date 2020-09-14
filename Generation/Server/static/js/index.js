@@ -3,20 +3,21 @@ const uploadBtn = document.querySelector('.upload-btn');
 const inputImg = document.querySelector('#input-img');
 
 function formSend() {
-    var formData = new FormData();
+    let formData = new FormData();
 
     // Image, Version 선택
     const image = document.getElementById('image').files[0];
     let style = document.getElementById('style');
     style = style.options[style.selectedIndex].value;
-    console.log(style);
-    if(style == ""){
-        alert("Choose the Version");
+
+    if(style == "" || style == ' '){
+        alert("Choose the Version!");
         return;
     }
 
     formData.append("image", image);
     formData.append("style", style);
+    
     fetch(
         '/transform',
         {
