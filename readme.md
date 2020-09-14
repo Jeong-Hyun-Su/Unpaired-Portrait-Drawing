@@ -11,11 +11,11 @@ This project generates artistic portrait drawings from face photos using a GAN-b
 
 ## Our Proposed Framework
  
-![architecture](https://user-images.githubusercontent.com/42924998/92678270-96c31a00-f360-11ea-8b5b-98de0a029af5.png)
+<img src="https://raw.githubusercontent.com/Jeong-Hyun-Su/Unpaired-Portrait-Drawing/master/Generation/Drawing/imgs/architecture.png" width= 85%;/>
 
 ## Sample Results
 From left to right: input, output(style1), output(style2), output(style3)
-![results](https://user-images.githubusercontent.com/42924998/92678287-a17daf00-f360-11ea-9ea2-227de6c07d3c.jpg)
+<img src="https://raw.githubusercontent.com/Jeong-Hyun-Su/Unpaired-Portrait-Drawing/master/Generation/Drawing/imgs/results.jpg" width= 85%;/>
 
 ## Citation
 If you use this code for your research, please cite our paper.

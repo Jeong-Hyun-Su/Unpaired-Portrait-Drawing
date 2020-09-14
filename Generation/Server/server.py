@@ -58,7 +58,6 @@ def run(image, style):
     file_dir = "./Drawing/examples/" + image.filename
 
     image.save(file_dir)
-
     # "1-0-0" => [1, 0, 0] 변환
     vec = list(map(int, style.split("-")))
     svec = '%d,%d,%d' % (vec[0], vec[1], vec[2])
@@ -72,17 +71,7 @@ def run(image, style):
     if os.path.isfile(file_dir):
         os.remove(file_dir)
 
-    # Drawing 폴더에서 생성된 fake 사진의 이름 설정
-    img_name = image.filename.split(".")[0] + "_fake.png"
-
-    tf_image = Image.open("./Drawing/results/pretrained/test_200/images/" + img_name)
-
-    # Serialization => Image to Bytes
-    byte_io = BytesIO()
-    tf_image.save(byte_io, "PNG")
-    byte_io.seek(0)
-
-    return byte_io
+    return val
 
 
 @app.route("/transform", methods=['POST'])
@@ -95,12 +84,11 @@ def sketch():
     try:
         image = request.files['image']
         style = request.form['style']
-        print(style.split("-"))
 
     except Exception:
         print("error : not contain image")
         return Response("fail", status=400)
-    
+
     # Queue - put data
     req = {
         'input': [image, style]

@@ -33,12 +33,16 @@ sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 dirs = os.getcwd()
 os.chdir(os.path.join(dirs, "Drawing"))
 
+from Drawing.util import util
 from Drawing.util.visualizer import save_images
 from Drawing.options.test_options import TestOptions
 from Drawing.data import create_dataset
 from Drawing.util import html
 import argparse
 import time
+from io import BytesIO
+from scipy.misc import imresize
+from PIL import Image
 
 
 def app(model, svec):
@@ -48,12 +52,7 @@ def app(model, svec):
     opt.model_suffix = "_A"
 
     dataset = create_dataset(opt)
-    # create a website
-    web_dir = os.path.join(opt.results_dir, opt.name, '%s_%s' % (opt.phase, opt.epoch))  # define the website directory
-    webpage = html.HTML(web_dir, 'Experiment = %s, Phase = %s, Epoch = %s' % (opt.name, opt.phase, opt.epoch), refresh=0, folder=opt.imagefolder)
-    # test with eval mode. This only affects layers like batchnorm and dropout.
-    # For [pix2pix]: we use batchnorm and dropout in the original pix2pix. You can experiment it with and without eval() mode.
-    # For [CycleGAN]: It should not affect CycleGAN as CycleGAN uses instancenorm without dropout.
+
     if opt.eval:
         model.eval()
     for i, data in enumerate(dataset):
@@ -62,7 +61,27 @@ def app(model, svec):
         model.set_input(data)  # unpack data from data loader
         model.test()           # run inference
         visuals = model.get_current_visuals()  # get image results
-        img_path = model.get_image_paths()     # get image paths
-        if i % 5 == 0:  # save images to an HTML file
-            print('processing (%04d)-th image... %s' % (i, img_path))
-        save_images(webpage, visuals, img_path, aspect_ratio=opt.aspect_ratio, width=opt.display_winsize)
+
+        aspect_ratio = opt.aspect_ratio
+
+        # 라벨, 이미지 get
+        _, data, _ = visuals.items()
+        label, im_data = data
+
+        # 변환
+        im = util.tensor2im(im_data)
+        # reshape
+        h, w, _ = im.shape
+        if aspect_ratio > 1.0:
+            im = imresize(im, (h, int(w * aspect_ratio)), interp='bicubic')
+        if aspect_ratio < 1.0:
+            im = imresize(im, (int(h / aspect_ratio), w), interp='bicubic')
+
+        # Send Image
+        image = Image.fromarray(im)
+
+        byte_io = BytesIO()
+        image.save(byte_io, "PNG")
+        byte_io.seek(0)
+
+        return byte_io

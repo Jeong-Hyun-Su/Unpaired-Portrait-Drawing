@@ -9,7 +9,7 @@ function formSend() {
     const image = document.getElementById('image').files[0];
     let style = document.getElementById('style');
     style = style.options[style.selectedIndex].value;
-
+    console.log(style);
     if(style == ""){
         alert("Choose the Version");
         return;
