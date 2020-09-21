@@ -29,7 +29,7 @@ paths:
               properties:
                 style:
                   type: string
-                  enum: ["1-0-0", "0-1-0", "0-0-1"]
+                  enum: ["Style 1", "Style 2", "Style 3"]
                 image:
                   type: string
                   format: binary
