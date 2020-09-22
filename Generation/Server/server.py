@@ -13,8 +13,8 @@ from Drawing import make_model as model
 
 # Make 3 Models
 models = dict()
-for style in ["1-0-0", "0-1-0", "0-0-1"]:
-    models[style] = model.make_model(style)
+for styles in ["1-0-0", "0-1-0", "0-0-1"]:
+    models[styles] = model.make_model(styles)
 
 os.chdir("/workspace/Generation")
 
@@ -86,6 +86,13 @@ def sketch():
     try:
         image = request.files['image']
         style = request.form['style']
+
+        if style == 'Style 1':
+            style = '1-0-0'
+        elif style == 'Style 2':
+            style = '0-1-0'
+        elif style == 'Style 3':
+            style = '0-0-1'
 
     except Exception:
         print("error : not contain image")

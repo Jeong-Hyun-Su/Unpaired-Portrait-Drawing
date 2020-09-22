@@ -15,9 +15,10 @@ function formSend() {
         return;
     }
 
-    if(style == "Style 1"){ style = "1-0-0" }
-    else if(style == "Style 2"){ style = "0-1-0" }
-    else if(style == "Style 3"){ style = "0-0-1" }
+    if(style != "Style 1" && style != "Style 2" && style != "Style 3"){
+        return;
+    }
+
 
     formData.append("image", image);
     formData.append("style", style);
