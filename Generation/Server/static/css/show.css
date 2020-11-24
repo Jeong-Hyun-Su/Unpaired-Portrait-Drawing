@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.container{
+    color: white;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+}
 
 .example{
     margin-left: 150px; 
